@@ -17,10 +17,10 @@ playerEl.textContent = player.name + ': $' + player.chips
 
 function startGame() {
   isAlive = true
-  let firstCard = getRandomCard()
-  let secondCard = getRandomCard()
-  cards = [firstCard, secondCard]
-  sum = firstCard + secondCard
+//  let firstCard = getRandomCard()
+//  let secondCard = getRandomCard()
+  cards = []
+  sum = 0
 
   renderGame()
 }
