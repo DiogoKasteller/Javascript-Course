@@ -9,4 +9,4 @@ This app is a Blackjack game simulation using Javascript.
 
 # 03.Chrome-Extension
 
-** In Progress **
+This app is a simple Lead Tracker made to be used as a Chrome extension which saves links or active tabs.
