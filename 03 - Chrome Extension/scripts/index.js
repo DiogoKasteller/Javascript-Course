@@ -4,7 +4,6 @@ const tabBtn = document.getElementById('tab-btn')
 const deleteBtn = document.getElementById('delete-btn')
 const ulEl = document.getElementById('ul-el')
 let myLeads = []
-let oldLeads = []
 
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem('myLeads'))
 
@@ -22,15 +21,11 @@ inputBtn.addEventListener('click', function () {
 
 tabBtn.addEventListener('click', function () {
   // Grab the URL of the current tab
-  tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    // since only one tab should be active and in the current window at once
-    // the return variable should only have one entry
-    let activeTab = tabs[0]
-    let activeTabId = activeTab.id
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    myLeads.push(tabs[0].url)
+    localStorage.setItem('myLeads', JSON.stringify(myLeads))
+    render(myLeads)
   })
-  myLeads.push(tabs[0].url)
-  localStorage.setItem('myLeads', JSON.stringify(myLeads))
-  render(myLeads)
 })
 
 deleteBtn.addEventListener('click', function () {
